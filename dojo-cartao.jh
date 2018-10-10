@@ -1,0 +1,71 @@
+
+
+entity Cartao {
+    numero Integer maxlength(16),
+    dataValidade LocalDate,
+    nomeTitular String,
+    codSeguranca Integer,
+    limite Double,
+    statusCartao StatusCartao
+}
+
+entity Cliente {
+nome String,
+email String ,
+telefone String 
+}
+
+enum StatusCartao {
+ BLOQUEADO, LIBERADO, ROUBADO
+}
+
+entity Endereco {
+nome String,
+logradouro String,
+numero String,
+referencia String,
+bairro String,
+cidade String,
+cep String
+}
+
+entity CategoriaCliente {
+nome String,
+descricao String,
+pontuacaoMinima Double
+}
+
+entity Fatura {
+dataProcessamento LocalDate,
+valorTotal Double,
+pontuacao Double
+statusFatura StatusFatura
+}
+
+enum StatusFatura {
+	GERADA, ATRASADA, CANCELADA, PAGA 
+}
+
+entity Produto {
+nome String,
+dataCompra LocalDate,
+valor Double
+}
+entity Pagamento {
+dataPagamento LocalDate,
+valor Double,
+nomeBanco String
+}
+relationship OneToOne {
+	Endereco{cliente} to  Cliente,
+    Pagamento to Fatura,
+    Pagamento to Cliente,
+    Produto to Endereco,
+    Cliente to Fatura
+}
+relationship OneToMany {
+	Cliente {listaCartoes(numero)} to Cartao {titular(nomeTitular)},
+    CategoriaCliente to Cliente{clientes(nome)},
+	Cartao to Fatura{faturas(statusFatura)},
+    Fatura to Produto{produtos(nome)}
+}
