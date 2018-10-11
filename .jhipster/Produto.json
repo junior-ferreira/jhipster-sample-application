@@ -1,0 +1,42 @@
+{
+    "name": "Produto",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataCompra",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "valor",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "endereco",
+            "otherEntityName": "endereco",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "produto"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "produtos",
+            "otherEntityName": "fatura",
+            "otherEntityField": "nome"
+        }
+    ],
+    "changelogDate": "20181011145303",
+    "entityTableName": "produto",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

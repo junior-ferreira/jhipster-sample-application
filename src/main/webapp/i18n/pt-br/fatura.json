@@ -1,0 +1,29 @@
+
+{
+    "projetoeasoftwareApp": {
+        "fatura" : {
+            "home": {
+                "title": "Faturas",
+                "createLabel": "Criar novo Fatura",
+                "createOrEditLabel": "Criar ou editar Fatura"
+            },
+            "created": "Um novo Fatura foi criado com o identificador {{ param }}",
+            "updated": "Um Fatura foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Fatura foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Fatura {{ id }}?"
+            },
+            "detail": {
+                "title": "Fatura"
+            },
+            "dataProcessamento": "Data Processamento",
+            "valorTotal": "Valor Total",
+            "pontuacao": "Pontuacao",
+            "statusFatura": "Status Fatura",
+            "produto": "Produto",
+            "pagamento": "Pagamento",
+            "cliente": "Cliente",
+            "faturas": "Faturas"
+        }
+    }
+}

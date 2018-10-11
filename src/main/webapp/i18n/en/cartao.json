@@ -1,0 +1,29 @@
+
+{
+    "projetoeasoftwareApp": {
+        "cartao" : {
+            "home": {
+                "title": "Cartaos",
+                "createLabel": "Create a new Cartao",
+                "createOrEditLabel": "Create or edit a Cartao"
+            },
+            "created": "A new Cartao is created with identifier {{ param }}",
+            "updated": "A Cartao is updated with identifier {{ param }}",
+            "deleted": "A Cartao is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cartao {{ id }}?"
+            },
+            "detail": {
+                "title": "Cartao"
+            },
+            "numero": "Numero",
+            "dataValidade": "Data Validade",
+            "nomeTitular": "Nome Titular",
+            "codSeguranca": "Cod Seguranca",
+            "limite": "Limite",
+            "statusCartao": "Status Cartao",
+            "fatura": "Fatura",
+            "titular": "Titular"
+        }
+    }
+}

@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cartao">
+            <h2><span jhiTranslate="projetoeasoftwareApp.cartao.detail.title">Cartao</span> {{cartao.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="projetoeasoftwareApp.cartao.numero">Numero</span></dt>
+                <dd>
+                    <span>{{cartao.numero}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetoeasoftwareApp.cartao.dataValidade">Data Validade</span></dt>
+                <dd>
+                    <span>{{cartao.dataValidade}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetoeasoftwareApp.cartao.nomeTitular">Nome Titular</span></dt>
+                <dd>
+                    <span>{{cartao.nomeTitular}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetoeasoftwareApp.cartao.codSeguranca">Cod Seguranca</span></dt>
+                <dd>
+                    <span>{{cartao.codSeguranca}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetoeasoftwareApp.cartao.limite">Limite</span></dt>
+                <dd>
+                    <span>{{cartao.limite}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetoeasoftwareApp.cartao.statusCartao">Status Cartao</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'projetoeasoftwareApp.StatusCartao.' + cartao.statusCartao}}">{{cartao.statusCartao}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetoeasoftwareApp.cartao.titular">Titular</span></dt>
+                <dd>
+                    <div *ngIf="cartao.titular">
+                        <a [routerLink]="['/cliente', cartao.titular?.id, 'view']">{{cartao.titular?.nomeTitular}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cartao', cartao.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
