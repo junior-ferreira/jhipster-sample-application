@@ -1,0 +1,66 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="projetoeasoftwareApp.fatura.home.title">Faturas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fatura" [routerLink]="['/fatura/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="projetoeasoftwareApp.fatura.home.createLabel">
+            Create new Fatura
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="faturas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="projetoeasoftwareApp.fatura.dataProcessamento">Data Processamento</span></th>
+            <th><span jhiTranslate="projetoeasoftwareApp.fatura.valorTotal">Valor Total</span></th>
+            <th><span jhiTranslate="projetoeasoftwareApp.fatura.pontuacao">Pontuacao</span></th>
+            <th><span jhiTranslate="projetoeasoftwareApp.fatura.statusFatura">Status Fatura</span></th>
+            <th><span jhiTranslate="projetoeasoftwareApp.fatura.faturas">Faturas</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let fatura of faturas ;trackBy: trackId">
+                <td><a [routerLink]="['/fatura', fatura.id, 'view' ]">{{fatura.id}}</a></td>
+                <td>{{fatura.dataProcessamento | date:'mediumDate'}}</td>
+                <td>{{fatura.valorTotal}}</td>
+                <td>{{fatura.pontuacao}}</td>
+                <td jhiTranslate="{{'projetoeasoftwareApp.StatusFatura.' + fatura.statusFatura}}">{{fatura.statusFatura}}</td>
+                <td>
+                    <div *ngIf="fatura.faturas">
+                        <a [routerLink]="['../cartao', fatura.faturas?.id, 'view' ]" >{{fatura.faturas?.statusFatura}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/fatura', fatura.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/fatura', fatura.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'fatura/'+ fatura.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

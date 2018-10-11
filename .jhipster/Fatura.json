@@ -1,0 +1,59 @@
+{
+    "name": "Fatura",
+    "fields": [
+        {
+            "fieldName": "dataProcessamento",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "valorTotal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "pontuacao",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "statusFatura",
+            "fieldType": "StatusFatura",
+            "fieldValues": "GERADA,ATRASADA,CANCELADA,PAGA"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "produto",
+            "otherEntityName": "produto",
+            "otherEntityRelationshipName": "produtos"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "pagamento",
+            "otherEntityName": "pagamento",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "fatura"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "cliente",
+            "otherEntityName": "cliente",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "fatura"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "faturas",
+            "otherEntityName": "cartao",
+            "otherEntityField": "statusFatura"
+        }
+    ],
+    "changelogDate": "20181011145302",
+    "entityTableName": "fatura",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

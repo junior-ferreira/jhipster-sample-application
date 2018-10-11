@@ -1,0 +1,55 @@
+{
+    "name": "Cliente",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefone",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "fatura",
+            "otherEntityName": "fatura",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "cliente"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "listaCartoes",
+            "otherEntityName": "cartao",
+            "otherEntityRelationshipName": "titular"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "pagamento",
+            "otherEntityName": "pagamento",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "cliente"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "clientes",
+            "otherEntityName": "categoriaCliente",
+            "otherEntityField": "nome"
+        }
+    ],
+    "changelogDate": "20181011145259",
+    "entityTableName": "cliente",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

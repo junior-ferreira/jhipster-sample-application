@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-produto-heading" jhiTranslate="projetoeasoftwareApp.produto.home.createOrEditLabel">Create or edit a Produto</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!produto.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="produto.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetoeasoftwareApp.produto.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="produto.nome" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetoeasoftwareApp.produto.dataCompra" for="field_dataCompra">Data Compra</label>
+                    <div class="input-group">
+                        <input id="field_dataCompra" type="text" class="form-control" name="dataCompra" ngbDatepicker  #dataCompraDp="ngbDatepicker" [(ngModel)]="produto.dataCompra"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataCompraDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetoeasoftwareApp.produto.valor" for="field_valor">Valor</label>
+                    <input type="number" class="form-control" name="valor" id="field_valor"
+                        [(ngModel)]="produto.valor" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetoeasoftwareApp.produto.endereco" for="field_endereco">Endereco</label>
+                    <select class="form-control" id="field_endereco" name="endereco" [(ngModel)]="produto.endereco">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="enderecoOption.id === produto.endereco?.id ? produto.endereco : enderecoOption" *ngFor="let enderecoOption of enderecos; trackBy: trackEnderecoById">{{enderecoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetoeasoftwareApp.produto.produtos" for="field_produtos">Produtos</label>
+                    <select class="form-control" id="field_produtos" name="produtos" [(ngModel)]="produto.produtos" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="faturaOption.id === produto.produtos?.id ? produto.produtos : faturaOption" *ngFor="let faturaOption of faturas; trackBy: trackFaturaById">{{faturaOption.nome}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
