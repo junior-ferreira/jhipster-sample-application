@@ -1,0 +1,53 @@
+{
+    "name": "Cartao",
+    "fields": [
+        {
+            "fieldName": "numero",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dataValidade",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "nomeTitular",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codSeguranca",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "limite",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "statusCartao",
+            "fieldType": "StatusCartao",
+            "fieldValues": "BLOQUEADO,LIBERADO,ROUBADO"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "fatura",
+            "otherEntityName": "fatura",
+            "otherEntityRelationshipName": "faturas"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "titular",
+            "otherEntityName": "cliente",
+            "otherEntityField": "nomeTitular"
+        }
+    ],
+    "changelogDate": "20181017133659",
+    "entityTableName": "cartao",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

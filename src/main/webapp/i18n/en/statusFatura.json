@@ -1,0 +1,11 @@
+{
+    "projetoeasoftwareApp": {
+        "StatusFatura" : {
+            "null": "",
+            "GERADA": "GERADA",
+            "ATRASADA": "ATRASADA",
+            "CANCELADA": "CANCELADA",
+            "PAGA": "PAGA"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+
+{
+    "projetoeasoftwareApp": {
+        "categoriaCliente" : {
+            "home": {
+                "title": "Categoria Clientes",
+                "createLabel": "Create a new Categoria Cliente",
+                "createOrEditLabel": "Create or edit a Categoria Cliente"
+            },
+            "created": "A new Categoria Cliente is created with identifier {{ param }}",
+            "updated": "A Categoria Cliente is updated with identifier {{ param }}",
+            "deleted": "A Categoria Cliente is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Categoria Cliente {{ id }}?"
+            },
+            "detail": {
+                "title": "Categoria Cliente"
+            },
+            "nome": "Nome",
+            "descricao": "Descricao",
+            "pontuacaoMinima": "Pontuacao Minima",
+            "cliente": "Cliente"
+        }
+    }
+}
