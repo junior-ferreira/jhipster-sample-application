@@ -38,6 +38,17 @@ public class CacheConfiguration {
             cm.createCache(io.github.jhipster.application.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Cartao.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Cartao.class.getName() + ".faturas", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Cliente.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Cliente.class.getName() + ".listaCartoes", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Endereco.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.CategoriaCliente.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.CategoriaCliente.class.getName() + ".clientes", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Fatura.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Fatura.class.getName() + ".produtos", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Produto.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Pagamento.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

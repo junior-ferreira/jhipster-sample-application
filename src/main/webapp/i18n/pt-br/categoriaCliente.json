@@ -1,0 +1,25 @@
+
+{
+    "projetoeasoftwareApp": {
+        "categoriaCliente" : {
+            "home": {
+                "title": "Categoria Clientes",
+                "createLabel": "Criar novo Categoria Cliente",
+                "createOrEditLabel": "Criar ou editar Categoria Cliente"
+            },
+            "created": "Um novo Categoria Cliente foi criado com o identificador {{ param }}",
+            "updated": "Um Categoria Cliente foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Categoria Cliente foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Categoria Cliente {{ id }}?"
+            },
+            "detail": {
+                "title": "Categoria Cliente"
+            },
+            "nome": "Nome",
+            "descricao": "Descricao",
+            "pontuacaoMinima": "Pontuacao Minima",
+            "cliente": "Cliente"
+        }
+    }
+}

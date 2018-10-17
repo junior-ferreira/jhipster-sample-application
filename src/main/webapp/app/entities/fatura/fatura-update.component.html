@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-fatura-heading" jhiTranslate="projetoeasoftwareApp.fatura.home.createOrEditLabel">Create or edit a Fatura</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!fatura.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="fatura.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetoeasoftwareApp.fatura.dataProcessamento" for="field_dataProcessamento">Data Processamento</label>
+                    <div class="input-group">
+                        <input id="field_dataProcessamento" type="text" class="form-control" name="dataProcessamento" ngbDatepicker  #dataProcessamentoDp="ngbDatepicker" [(ngModel)]="fatura.dataProcessamento"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataProcessamentoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetoeasoftwareApp.fatura.valorTotal" for="field_valorTotal">Valor Total</label>
+                    <input type="number" class="form-control" name="valorTotal" id="field_valorTotal"
+                        [(ngModel)]="fatura.valorTotal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetoeasoftwareApp.fatura.pontuacao" for="field_pontuacao">Pontuacao</label>
+                    <input type="number" class="form-control" name="pontuacao" id="field_pontuacao"
+                        [(ngModel)]="fatura.pontuacao" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetoeasoftwareApp.fatura.statusFatura" for="field_statusFatura">Status Fatura</label>
+                    <select class="form-control" name="statusFatura" [(ngModel)]="fatura.statusFatura" id="field_statusFatura" >
+                        <option value="GERADA">{{'projetoeasoftwareApp.StatusFatura.GERADA' | translate}}</option>
+                        <option value="ATRASADA">{{'projetoeasoftwareApp.StatusFatura.ATRASADA' | translate}}</option>
+                        <option value="CANCELADA">{{'projetoeasoftwareApp.StatusFatura.CANCELADA' | translate}}</option>
+                        <option value="PAGA">{{'projetoeasoftwareApp.StatusFatura.PAGA' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetoeasoftwareApp.fatura.faturas" for="field_faturas">Faturas</label>
+                    <select class="form-control" id="field_faturas" name="faturas" [(ngModel)]="fatura.faturas" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cartaoOption.id === fatura.faturas?.id ? fatura.faturas : cartaoOption" *ngFor="let cartaoOption of cartaos; trackBy: trackCartaoById">{{cartaoOption.statusFatura}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
