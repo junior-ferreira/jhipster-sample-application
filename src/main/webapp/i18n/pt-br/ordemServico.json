@@ -1,0 +1,26 @@
+
+{
+    "projetoeasoftwareApp": {
+        "ordemServico" : {
+            "home": {
+                "title": "Ordem Servicos",
+                "createLabel": "Criar novo Ordem Servico",
+                "createOrEditLabel": "Criar ou editar Ordem Servico"
+            },
+            "created": "Um novo Ordem Servico foi criado com o identificador {{ param }}",
+            "updated": "Um Ordem Servico foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Ordem Servico foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Ordem Servico {{ id }}?"
+            },
+            "detail": {
+                "title": "Ordem Servico"
+            },
+            "dataProcessamento": "Data Processamento",
+            "servico": "Servico",
+            "valorTotal": "Valor Total",
+            "servico": "Servico",
+            "servico": "Servico"
+        }
+    }
+}

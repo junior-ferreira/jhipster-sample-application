@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ordemServico">
+            <h2><span jhiTranslate="projetoeasoftwareApp.ordemServico.detail.title">Ordem Servico</span> {{ordemServico.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="projetoeasoftwareApp.ordemServico.dataProcessamento">Data Processamento</span></dt>
+                <dd>
+                    <span>{{ordemServico.dataProcessamento}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetoeasoftwareApp.ordemServico.servico">Servico</span></dt>
+                <dd>
+                    <span>{{ordemServico.servico}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetoeasoftwareApp.ordemServico.valorTotal">Valor Total</span></dt>
+                <dd>
+                    <span>{{ordemServico.valorTotal}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetoeasoftwareApp.ordemServico.servico">Servico</span></dt>
+                <dd>
+                    <div *ngIf="ordemServico.servico">
+                        <a [routerLink]="['/servico', ordemServico.servico?.id, 'view']">{{ordemServico.servico?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="projetoeasoftwareApp.ordemServico.servico">Servico</span></dt>
+                <dd>
+                    <div *ngIf="ordemServico.servico">
+                        <a [routerLink]="['/cliente', ordemServico.servico?.id, 'view']">{{ordemServico.servico?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ordem-servico', ordemServico.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

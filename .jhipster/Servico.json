@@ -1,0 +1,34 @@
+{
+    "name": "Servico",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valor",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "nome",
+            "otherEntityName": "ordemServico",
+            "otherEntityRelationshipName": "servico"
+        }
+    ],
+    "changelogDate": "20181030120117",
+    "entityTableName": "servico",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
