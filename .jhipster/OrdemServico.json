@@ -1,0 +1,40 @@
+{
+    "name": "OrdemServico",
+    "fields": [
+        {
+            "fieldName": "dataProcessamento",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "servico",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valorTotal",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "servico",
+            "otherEntityName": "servico",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "servico",
+            "otherEntityName": "cliente",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181030120119",
+    "entityTableName": "ordem_servico",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

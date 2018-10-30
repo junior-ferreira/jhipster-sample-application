@@ -1,0 +1,49 @@
+
+
+
+
+entity Cliente {
+nome String,
+email String ,
+telefone String 
+}
+
+entity Servico{
+nome String,
+descricao String,
+valor Double
+}
+
+entity Endereco {
+nome String,
+logradouro String,
+numero String,
+referencia String,
+bairro String,
+cidade String,
+cep String
+}
+
+
+
+entity OrdemServico {
+dataProcessamento LocalDate,
+servico String,
+valorTotal Double,
+
+}
+
+
+
+relationship OneToOne {
+	Endereco{cliente} to  Cliente,
+    
+    
+    
+    
+}
+relationship OneToMany {
+	Cliente {listaCartoes(numero)} to OrdemServico {servico},
+    Servico {nome} to OrdemServico
+    
+}

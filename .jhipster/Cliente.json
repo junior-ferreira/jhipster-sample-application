@@ -1,0 +1,34 @@
+{
+    "name": "Cliente",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefone",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "listaCartoes",
+            "otherEntityName": "ordemServico",
+            "otherEntityRelationshipName": "servico"
+        }
+    ],
+    "changelogDate": "20181030120116",
+    "entityTableName": "cliente",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
